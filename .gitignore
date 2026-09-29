@@ -1,0 +1,6 @@
+# Project specific
+*.joblib
+*.pkl
+.ipynb_checkpoints/
+.vscode/
+.DS_Store
