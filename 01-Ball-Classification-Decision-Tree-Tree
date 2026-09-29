@@ -1,0 +1,64 @@
+# Ball Classification using Decision Tree
+
+A beginner-friendly machine learning case study that classifies a ball as **Tennis** or **Cricket** using a Decision Tree.
+
+## Problem Statement
+Given the weight and surface type of a ball, predict whether it is a tennis ball or a cricket ball.
+
+## Dataset
+- Small custom dataset with 15 samples (created for this case study)
+- No external file needed. Data is inside `main.py`.
+
+| Feature | Description | Encoding |
+|---------|-------------|----------|
+| Weight | Weight of the ball | Number |
+| Surface | Surface of the ball | Rough = 1, Smooth = 0 |
+
+| Label | Encoding |
+|-------|----------|
+| Tennis | 1 |
+| Cricket | 2 |
+
+## Algorithm
+- Decision Tree Classifier (`sklearn.tree.DecisionTreeClassifier`)
+
+## Workflow
+1. Data loading
+2. Feature and label encoding
+3. Train/test split
+4. Model training
+5. Model evaluation (accuracy)
+6. Prediction on new balls
+
+## Project Structure
+```
+01-Ball-Classification-Decision-Tree/
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+## How to Run
+```bash
+pip install -r requirements.txt
+python main.py
+```
+
+## Sample Output
+```
+Model accuracy :: 1.0
+Object looks like tennis ball
+Object looks like cricket ball
+```
+
+## Results
+- Test accuracy: 100% on 2 test samples
+- Sample predictions: weight 37 with rough surface gives Tennis. Weight 94 with smooth surface gives Cricket.
+- Note: the dataset is very small, so accuracy is not a reliable measure. This project is for learning the ML workflow.
+
+## Tech Stack
+- Python 3
+- scikit-learn
+
+## Author
+Ishwari Surve
