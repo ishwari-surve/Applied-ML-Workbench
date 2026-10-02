@@ -2,47 +2,48 @@
 
 A machine learning classification project that predicts whether a ball is a **Tennis Ball** or a **Cricket Ball** using its weight and surface type.
 
-This case study shows the complete ML workflow with a Decision Tree Classifier in scikit-learn: load data, encode, split, train, evaluate and predict.
+This case study shows the complete ML workflow with a Decision Tree Classifier in scikit-learn: load data, split, train, evaluate and predict.
 
 ## 🎯 Problem Statement
 Given the weight and surface (Rough / Smooth) of a ball, predict its category.
 
 ## 🛠️ Tech Stack
 - Python 3
-- pandas
 - scikit-learn
 
 ## 📊 Dataset
-- File: `data/dataset.csv`
 - Size: 15 samples (small custom dataset created for this case study)
+- Classes: Tennis (9 samples), Cricket (6 samples)
+- The data is hard-coded in `main.py` in encoded form.
+- A readable copy is available in `data/dataset.csv`. The code does not read this file.
 
-| Column | Description | Encoding in code |
-|--------|-------------|------------------|
-| Weight | Weight of the ball | Number (used as is) |
-| Surface | Rough or Smooth | Rough = 1, Smooth = 0 |
-| Label | Tennis or Cricket | Tennis = 1, Cricket = 2 |
+| Column  | Description        | Encoding in code        |
+|---------|--------------------|-------------------------|
+| Weight  | Weight of the ball | Number (used as is)     |
+| Surface | Rough or Smooth    | Rough = 1, Smooth = 0   |
+| Label   | Tennis or Cricket  | Tennis = 1, Cricket = 2 |
 
 ## 🌳 Algorithm
 - Decision Tree Classifier (`sklearn.tree.DecisionTreeClassifier`)
 - The tree learns simple rules from the training data, such as "heavy and smooth means cricket".
 
 ## 🔍 Workflow
-1. Load data from CSV
-2. Encode features and labels
-3. Split into train and test sets
-4. Train the model
-5. Evaluate with accuracy
-6. Predict new balls
+1. Load the dataset
+2. Split into train and test sets
+3. Build and train the model
+4. Evaluate with accuracy
+5. Predict new balls
 
 ## 📂 Project Structure
 ```
 01-Ball-Classification-Decision-Tree/
 ├── data/
-│   └── dataset.csv
+│   ├── dataset.csv
+│   └── README.md
 ├── images/
 │   └── output.png
 ├── src/
-    └── main.py
+│   └── main.py
 ├── requirements.txt
 └── README.md
 ```
@@ -63,6 +64,9 @@ Object looks like tennis ball
 
 ## 🖥️ Sample Output
 ```
+------------------------------------------------------------
+---------- Ball Classification Case Study ------------------
+------------------------------------------------------------
 Model accuracy :: 1.0
 Object looks like tennis ball
 Object looks like cricket ball
@@ -87,7 +91,7 @@ Object looks like cricket ball
 - Add more ball types
 
 ## 👩‍💻 Author
-**Ishwari**
-B.E. Electronics and Computer Engineering | Aspiring Data Science / AI-ML Engineer
+**Ishwari Surve**
 
-GitHub: https://github.com/your-username
+
+GitHub: https://github.com/ishwari-surve
