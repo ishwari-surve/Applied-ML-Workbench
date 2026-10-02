@@ -43,7 +43,7 @@ Given the weight and surface (Rough / Smooth) of a ball, predict its category.
 ├── images/
 │   └── output.png
 ├── src/
-│   └── main.py
+│   └──  01_BALL_CLASSIFICATION.py
 ├── requirements.txt
 └── README.md
 ```
