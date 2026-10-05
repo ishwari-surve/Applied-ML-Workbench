@@ -49,11 +49,11 @@ This folder has the source code of the Iris Classification case study.
 Run from the case study folder (the one with requirements.txt):
 
     pip install -r requirements.txt
-    python src/main.py
+    python src/iris_classification.py
 
 You can also run it from inside the src folder:
 
-    python main.py
+    python iris_classification.py
 
 ## Output Files
 The code creates these images inside the `images` folder:
