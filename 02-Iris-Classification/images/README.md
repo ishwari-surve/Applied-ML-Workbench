@@ -16,9 +16,9 @@ This folder has the output images of the Iris Classification case study.
 The first three images are created automatically when you run the code.
 Run from the case study folder (the one with requirements.txt):
 
-    python src/main.py
+    python srciris_classification.py
 
-`output_1.png` and `output_2.png` are screenshots of the terminal output, added manually.
+`all outputs` are screenshots of the terminal output, added manually.
 
 ## Results shown
 - KNN accuracy: 1.0000
