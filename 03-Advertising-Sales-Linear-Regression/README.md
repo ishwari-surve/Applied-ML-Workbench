@@ -95,9 +95,9 @@ TV = 50, radio = 10, newspaper = 20  ->  Predicted sales : 7.16
 ```
 
 ## 📸 Output Screenshots
-![Output 1](images/output_1.png)
+![Output 1](images/output_4.png)
 
-![Output 2](images/output_2.png)
+![Output 2](images/output_5.png)
 
 ## ✅ Results
 
