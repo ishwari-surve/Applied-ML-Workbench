@@ -71,6 +71,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file.
 
 ## 👩‍💻 Author
 **Ishwari Vijaykumar Surve**
-B.E. Electronics and Computer Engineering | Aspiring Data Science / AI-ML Engineer
+
 
 GitHub: https://github.com/ishwari-surve
