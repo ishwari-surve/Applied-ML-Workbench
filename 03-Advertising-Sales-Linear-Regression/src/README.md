@@ -2,7 +2,7 @@
 
 This folder has the source code of the Advertising Sales Prediction case study.
 
-## File
+## File 
 - `main.py`
 
 ## What the code does
