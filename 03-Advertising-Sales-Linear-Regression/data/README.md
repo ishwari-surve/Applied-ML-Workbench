@@ -4,7 +4,7 @@ This folder has the dataset used in the Advertising Sales Prediction case study.
 
 ## File
 - `advertising.csv`
-
+ 
 ## Details
 - Total samples: 200
 - Features: 3 (TV, radio, newspaper)
