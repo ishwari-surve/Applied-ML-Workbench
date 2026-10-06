@@ -11,10 +11,11 @@ This folder has the source code of the Advertising Sales Prediction case study.
 - Shows statistics and the correlation between columns
 - Splits the data into independent (TV, radio, newspaper) and dependent (sales) variables
 - Splits the data into training (80%) and testing (20%) sets
-- Trains a Linear Regression model
+- Trains a Multiple Linear Regression model
 - Predicts sales for the test data
 - Evaluates the model with MSE, RMSE and R2
 - Shows the model coefficients and compares actual and predicted sales
+- Predicts sales for new advertising budgets
 - Saves charts inside the `images` folder
 
 ## Functions
@@ -30,12 +31,13 @@ This folder has the source code of the Advertising Sales Prediction case study.
 | show_correlation         | Shows the correlation matrix and saves heatmap  |
 | split_features_target    | Separates features (X) and target (Y)           |
 | split_dataset            | Splits data into train and test sets            |
-| train_model              | Creates and trains the Linear Regression model  |
+| train_model              | Creates and trains the model                    |
 | predict_sales            | Predicts sales for the test data                |
 | evaluate_model           | Calculates MSE, RMSE and R2                     |
 | show_coefficients        | Shows the coefficients and the intercept        |
 | compare_actual_predicted | Shows actual and predicted sales side by side   |
 | plot_actual_vs_predicted | Draws and saves the actual vs predicted plot    |
+| predict_new_sales        | Predicts sales for a new advertising budget     |
 | display_footer           | Prints the completion message                   |
 | main                     | Runs the complete workflow in order             |
 
@@ -62,3 +64,5 @@ The code creates these images inside the `images` folder:
 - Mean Squared Error: 3.1741
 - Root Mean Squared Error: 1.7816
 - R Square: 0.8994
+- Predicted sales for TV = 200, radio = 40, newspaper = 30: 19.58
+- Predicted sales for TV = 50, radio = 10, newspaper = 20: 7.16
