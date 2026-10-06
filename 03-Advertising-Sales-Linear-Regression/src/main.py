@@ -2,7 +2,7 @@
 ------------------------------------------------------------
 Project Name        : Advertising Sales Prediction
 
-Dataset Information :
+Dataset Information : 
 
 Dataset File        : data/advertising.csv (200 samples)
 
