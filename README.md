@@ -9,6 +9,7 @@ A collection of hands-on machine learning case studies built in Python. Each cas
 | 01 | [Ball Classification](01-Ball-Classification-Decision-Tree) | Classification | Decision Tree | 100% accuracy (2 test samples) |
 | 02 | [Iris Classification](02-Iris-Classification) | Classification | KNN, Decision Tree | KNN 100%, Decision Tree 93.33% |
 | 03 | [Advertising Sales Prediction](03-Advertising-Sales-Linear-Regression) | Regression | Multiple Linear Regression | R² 0.8994, RMSE 1.78 |
+| 04 | [Wine Classification](04-Wine-Classification-KNN) | Classification | KNN with feature scaling and hyperparameter tuning | 96.50% cross validation, 100% test accuracy (best K = 13) |
 
 More case studies will be added.
 
@@ -41,6 +42,12 @@ Applied-ML-Workbench/
 │   ├── src/
 │   ├── requirements.txt
 │   └── README.md
+├── 04-Wine-Classification-KNN/
+│   ├── data/
+│   ├── images/
+│   ├── src/
+│   ├── requirements.txt
+│   └── README.md
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -53,7 +60,7 @@ Applied-ML-Workbench/
 ```
 2. Open a case study folder:
 ```bash
-   cd Applied-ML-Workbench/03-Advertising-Sales-Linear-Regression
+   cd Applied-ML-Workbench/04-Wine-Classification-KNN
 ```
 3. Install the requirements:
 ```bash
@@ -71,6 +78,6 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file.
 
 ## 👩‍💻 Author
 **Ishwari Vijaykumar Surve**
-
+B.E. Electronics and Computer Engineering | Aspiring Data Science / AI-ML Engineer
 
 GitHub: https://github.com/ishwari-surve
