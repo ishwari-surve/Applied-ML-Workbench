@@ -134,23 +134,6 @@ Test accuracy      : 80.45 %
 Baseline accuracy  : 61.45 %
 Problem Type       : Binary Classification
 ```
-
-## 📸 Output Screenshots
-
-Add terminal screenshots to the `images` folder if you want to document the execution output.
-
-### Survival Count
-
-![Survival Count](images/survival_count.png)
-
-### Age Distribution
-
-![Age Distribution](images/age_distribution.png)
-
-### Confusion Matrix
-
-![Confusion Matrix](images/confusion_matrix.png)
-
 ## ✅ Results
 
 | Measure | Value |
