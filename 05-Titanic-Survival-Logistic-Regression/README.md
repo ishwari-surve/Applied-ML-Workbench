@@ -62,28 +62,37 @@ The program excludes the 418 records after Passengerid 891 because their surviva
 15. Plot the confusion matrix.
 16. Display the project summary.
 
-## 📂 Project Structure
-
-```text
+## Project Structure
 05-Titanic-Survival-Logistic-Regression/
+│
 ├── data/
 │   ├── titanic.csv
 │   └── README.md
+│
 ├── images/
 │   ├── survival_count.png
 │   ├── age_distribution.png
 │   ├── confusion_matrix.png
+│   ├── output_1.png
+│   ├── output_2.png
+│   ├── output_3.png
+│   ├── output_4.png
 │   └── README.md
+│
 ├── models/
+│   ├── titanic_model.pkl
 │   └── README.md
+│
 ├── src/
 │   ├── main.py
 │   └── README.md
+│
 ├── requirements.txt
+├── .gitignore
 └── README.md
 ```
-
 The model file `models/titanic_model.pkl` is generated when the program runs. It can be excluded from GitHub using `.gitignore`.
+```
 
 ## ▶️ How to Run
 
