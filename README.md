@@ -10,6 +10,8 @@ A collection of hands-on machine learning case studies built in Python. Each cas
 | 02 | [Iris Classification](02-Iris-Classification) | Classification | KNN, Decision Tree | KNN 100%, Decision Tree 93.33% |
 | 03 | [Advertising Sales Prediction](03-Advertising-Sales-Linear-Regression) | Regression | Multiple Linear Regression | R² 0.8994, RMSE 1.78 |
 | 04 | [Wine Classification](04-Wine-Classification-KNN) | Classification | KNN with feature scaling and hyperparameter tuning | 96.50% cross validation, 100% test accuracy (best K = 13) |
+| 05 | [Titanic Survival Prediction](05-Titanic-Survival-Logistic-Regression) | Classification | Logistic Regression | 80.45% accuracy (baseline 61.45%) |
+
 
 More case studies will be added.
 
@@ -20,6 +22,7 @@ More case studies will be added.
 - scikit-learn
 - matplotlib
 - seaborn
+- joblib
 
 ## 📂 Repository Structure
 ```
@@ -48,6 +51,19 @@ Applied-ML-Workbench/
 │   ├── src/
 │   ├── requirements.txt
 │   └── README.md
+├── 05-Titanic-Survival-Logistic-Regression/
+│   ├── data/
+│   ├── images/
+│   ├── models/
+│   ├── src/
+│   ├── requirements.txt
+│   └── README.md
+├── 06-Mall-Customer-Segmentation-KMeans-Clustering/
+│   ├── data/
+│   ├── images/
+│   ├── src/
+│   ├── requirements.txt
+│   └── README.md
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -60,7 +76,7 @@ Applied-ML-Workbench/
 ```
 2. Open a case study folder:
 ```bash
-   cd Applied-ML-Workbench/04-Wine-Classification-KNN
+   cd Applied-ML-Workbench/06-Mall-Customer-Segmentation-KMeans-Clustering
 ```
 3. Install the requirements:
 ```bash
