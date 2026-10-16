@@ -1,127 +1,80 @@
-# 🏡 California Housing Price Prediction
-### 💻 Source Code | Machine Learning Regression
+# 💻 Source Code — California Housing Price Prediction
 
-Welcome to the **Source Code** folder of the California Housing Price Prediction project! This folder contains the Python implementation for predicting median house values in California using multiple machine learning regression algorithms.
+## 📌 Overview
 
----
+This folder contains the Python source code for the **California Housing Price Prediction Using Ensemble Learning** project.
 
-## 📂 Source File
+The main program, `main.py`, implements the complete Machine Learning workflow, from loading and analyzing the dataset to model training, evaluation, visualization, and house price prediction.
 
-| File Name | Description |
+## 📂 Files
+
+- `main.py` — Main Python program containing the complete implementation of the project.
+
+## ⚙️ Functionalities Implemented
+
+The source code includes the following functionalities:
+
+1. **Dataset Loading** — Loads the California Housing dataset from a CSV file.
+2. **Data Quality Checks** — Checks missing values, duplicate rows, and capped house prices.
+3. **Statistical Analysis** — Displays descriptive statistics for the dataset.
+4. **Correlation Analysis** — Examines correlations between input features and house prices.
+5. **Feature and Target Separation** — Separates independent variables from the target variable.
+6. **Train-Test Split** — Divides the dataset into training and testing sets using an 80:20 ratio.
+7. **Model Building** — Initializes six regression models.
+8. **Cross-Validation** — Compares models using 5-fold cross-validation.
+9. **Best Ensemble Selection** — Selects the best ensemble model using cross-validation R² scores.
+10. **Model Training** — Trains the selected ensemble model.
+11. **Model Persistence** — Saves and reloads the trained model using Joblib.
+12. **Performance Evaluation** — Evaluates the selected model using R² Score, RMSE, and MAE.
+13. **Model Comparison** — Displays the test performance of all six models.
+14. **Data Visualization** — Generates model comparison, actual-versus-predicted, feature importance, and California housing price map plots.
+15. **Price Prediction** — Displays actual and predicted prices for sample test records.
+
+## 🤖 Models Implemented
+
+| Model | Category |
 |---|---|
-| `main.py` | 🐍 Complete machine learning pipeline, including data loading, model training, evaluation, hyperparameter tuning, visualization, and prediction |
+| Linear Regression | Single model |
+| Decision Tree Regressor | Single model |
+| Support Vector Regression (SVR) | Single model |
+| Bagging Regressor | Bagging ensemble |
+| Random Forest Regressor | Bagging ensemble |
+| Gradient Boosting Regressor | Boosting ensemble |
 
----
+## 🛠️ Technologies and Libraries
 
-## 🏠 Project Workflow
+- **Python** — Main programming language
+- **Pandas** — Dataset handling and analysis
+- **NumPy** — Numerical computations
+- **Matplotlib** — Data visualization
+- **Scikit-learn** — Regression algorithms, preprocessing, cross-validation, and evaluation metrics
+- **Joblib** — Saving and loading the trained model
 
-The project follows a complete machine learning workflow:
+## ▶️ How to Run
 
-1. 📥 **Dataset Loading** — Load and save the California Housing dataset.
-2. 🔍 **Data Exploration** — Examine records, features, missing values, and statistical summaries.
-3. 🧩 **Feature Engineering** — Separate input features and the target variable.
-4. ✂️ **Train-Test Split** — Divide the dataset into 80% training and 20% testing data.
-5. 🤖 **Model Initialization** — Initialize nine regression algorithms.
-6. 🔄 **Cross-Validation** — Evaluate models using 5-fold cross-validation.
-7. 🎯 **Model Training** — Train the algorithms on the training dataset.
-8. 📊 **Performance Evaluation** — Calculate R² Score, RMSE, and MAE.
-9. 🏆 **Model Comparison** — Compare and rank the regression models.
-10. ⚙️ **Hyperparameter Tuning** — Optimize Random Forest using `GridSearchCV`.
-11. 🏡 **House Value Prediction** — Predict median house values from input features.
-12. 🔎 **Feature Importance** — Analyze which features contribute most to predictions.
-13. 📈 **Data Visualization** — Generate model comparison, prediction, residual, and feature-importance plots.
-14. 💾 **Save Outputs** — Save trained models and evaluation results.
-
----
-
-## 🤖 Machine Learning Algorithms
-
-The following nine regression algorithms are implemented:
-
-- 📉 Linear Regression
-- ⚖️ Ridge Regression
-- 🧮 Lasso Regression
-- 🎯 Support Vector Regression (SVR)
-- 🌳 Decision Tree Regressor
-- 🌲 Bagging Regressor
-- 🌳 Random Forest Regressor
-- 🚀 AdaBoost Regressor
-- 📈 Gradient Boosting Regressor
-
----
-
-## 📊 Model Evaluation Metrics
-
-| Metric | Purpose |
-|---|---|
-| 📈 R² Score | Measures how well the model explains variation in house values |
-| 📉 RMSE | Measures prediction error, penalizing larger errors |
-| 🎯 MAE | Measures the average absolute prediction error |
-
----
-
-## 🛠️ Technologies Used
-
-- 🐍 Python
-- 🔢 NumPy
-- 🐼 Pandas
-- 📊 Matplotlib
-- 🤖 Scikit-learn
-- 💾 Joblib
-
----
-
-## ▶️ How to Run the Project
-
-**Step 1: Open the project root directory.**
-
-**Step 2: Install the required libraries.**
+Run the following command from the directory containing `main.py`:
 
 ```bash
-pip install -r requirements.txt
+python main.py
 ```
 
-**Step 3: Execute the main Python file.**
+Ensure that the dataset is available at `data/california_housing.csv` relative to the project root, and that the required Python libraries are installed.
 
-```bash
-python src/main.py
-```
+## 📁 Output
 
----
+When execution completes successfully, the program generates:
 
-## 📁 Generated Outputs
+- A saved trained model: `models/california_housing_model.pkl`
+- Model comparison graph: `images/model_comparison.png`
+- Actual-versus-predicted graph: `images/actual_vs_predicted.png`
+- Feature importance graph: `images/feature_importance.png`
+- California housing price map: `images/price_map.png`
 
-The program generates or saves files in the corresponding project folders:
-
-- 🗃️ `data/` — California Housing dataset
-- 📊 `results/` — Model comparison, feature importance, and prediction comparison CSV files
-- 💾 `models/` — Saved regression models
-- 📈 `images/` — Project visualizations, when saved separately
-
----
-
-## 🎯 Project Objective
-
-To develop a machine learning regression system that compares multiple algorithms, tunes a Random Forest model, and predicts median house values using housing, demographic, and geographical features.
-
----
-
-## 🏡 Key Highlights
-
-- ✅ Nine regression algorithms compared
-- ✅ 5-fold cross-validation
-- ✅ Multiple model evaluation metrics
-- ✅ Random Forest hyperparameter tuning
-- ✅ Feature importance analysis
-- ✅ Prediction error analysis and visualizations
-- ✅ Model and results export
-
----
+It also displays model evaluation metrics, dataset analysis, and sample price predictions in the terminal.
 
 ## 👩‍💻 Author
 
 **Ishwari Vijaykumar Surve**
 
-*Case Study 08 — California Housing Price Prediction Using Machine Learning Regression*
-
+Part of the `Applied-ML-Workbench` Machine Learning portfolio.
 
