@@ -1,1 +1,20 @@
+# Credit Card Fraud Detection - Project Dependencies
+
+# Data manipulation and numerical computing
+pandas
+numpy
+
+# Data visualization
+matplotlib
+seaborn
+
+# Machine Learning
+scikit-learn
+imbalanced-learn
+
+# Model saving and loading
+joblib
+
+# Model explainability
+shap
 
