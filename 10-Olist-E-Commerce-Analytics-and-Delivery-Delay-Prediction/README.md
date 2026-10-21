@@ -194,4 +194,50 @@ The project is designed to generate the following artifacts:
 - **Model comparison:** Cross-validation results for the classification models.
 - **Delivery predictions:** Actual outcomes, predicted outcomes, probabilities, and risk categories for test-set orders.
 - **Evaluation metrics:** Performance scores for the selected model.
-- **Conf
+- **Confusion matrix:** Visualization of classification outcomes.
+- **Precision–Recall curve:** Visualization of precision and recall trade-offs.
+- **Model performance chart:** Comparison of evaluation metrics.
+- **Business insights:** JSON summary of delivery statistics and recommendations.
+- **Saved model:** Trained machine learning pipeline for reuse.
+
+These outputs can support additional analysis and the development of a Power BI dashboard.
+
+## 💡 Business Applications
+
+The project demonstrates how e-commerce data analytics and machine learning can help businesses:
+
+- Understand customer purchasing behavior.
+- Monitor delivery performance.
+- Identify orders that may require additional attention.
+- Evaluate the effectiveness of late-delivery detection.
+- Support proactive customer communication and logistics review.
+- Build data-driven operational reports.
+
+Predicted risk levels are analytical indicators, not guarantees that an order will be delayed.
+
+## 🔮 Future Enhancements
+
+- Develop an interactive Power BI dashboard.
+- Improve model performance through hyperparameter tuning.
+- Evaluate alternative classification thresholds based on business requirements.
+- Add explainability using feature importance or SHAP.
+- Develop a prediction interface for new orders.
+- Incorporate additional operational data to improve delivery-risk analysis.
+
+## 👩‍💻 Author
+
+**Ishwari Vijaykumar Surve**
+
+## 📜 Data Source and Acknowledgment
+
+This project uses the Olist Brazilian E-Commerce Public Dataset made available through Kaggle.
+
+Dataset source: https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+
+Please consult the dataset page for its licensing and usage terms.
+
+## ⭐ Conclusion
+
+This project combines data cleaning, exploratory analysis, customer segmentation, machine learning, and business insight generation in an end-to-end e-commerce analytics workflow.
+
+It demonstrates practical Python data science skills and the application of machine learning to a real-world logistics problem: **predicting late deliveries and supporting better operational decisions.**
