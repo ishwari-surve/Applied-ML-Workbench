@@ -1,8 +1,0 @@
-customer_segment,customers,average_recency_days,average_orders,average_spending,total_spending
-Loyal Customers,30844,268.85,1.07,119.49,3685602.92
-Hibernating,15050,395.51,1.0,140.8,2119072.73
-Potential Loyalists,14955,90.93,1.0,140.89,2107021.69
-Regular Customers,11084,220.01,1.0,130.91,1450973.18
-At Risk,7468,393.97,1.0,139.18,1039371.97
-Recent Customers,7458,91.47,1.0,139.22,1038300.71
-Champions,6499,91.75,1.17,274.07,1781154.91
