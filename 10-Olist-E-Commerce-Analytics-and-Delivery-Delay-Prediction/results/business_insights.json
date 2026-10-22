@@ -1,0 +1,21 @@
+{
+    "total_orders": 19294,
+    "actual_late_orders": 1021,
+    "actual_ontime_orders": 18273,
+    "actual_late_percentage": 5.291800559759511,
+    "predicted_late_orders": 13913,
+    "predicted_ontime_orders": 5381,
+    "predicted_late_percentage": 72.1105006737846,
+    "high_risk_orders": 6313,
+    "high_risk_percentage": 32.72001658546698,
+    "average_precision": 0.11247848570995275,
+    "precision": 0.06979084309638467,
+    "recall": 0.951028403525955,
+    "f1_score": 0.130038837551895,
+    "recommendations": [
+        "Investigate shipping and fulfillment processes to identify causes of delivery delays.",
+        "Review detected late orders to identify opportunities for proactive customer communication.",
+        "Prioritize high-risk orders for operational review before promising delivery dates.",
+        "Many late-delivery alerts may be incorrect. Review alert thresholds before operational deployment."
+    ]
+}
