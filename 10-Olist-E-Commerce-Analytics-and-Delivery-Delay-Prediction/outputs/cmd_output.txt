@@ -1,0 +1,930 @@
+C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\src>python main.py
+
+======================================================================
+OLIST E-COMMERCE ANALYTICS & DELIVERY DELAY PREDICTION
+======================================================================
+
+Table                 Rows   Columns
+------------------------------------
+customers           99,441         5
+geolocation      1,000,163         5
+items              112,650         7
+payments           103,886         5
+reviews             99,224         7
+orders              99,441         8
+products            32,951         9
+sellers              3,095         4
+translation             71         2
+------------------------------------
+Total tables loaded : 9
+
+============================================================
+Dataset Name : Customers
+============================================================
+Number of Rows    : 99,441
+Number of Columns : 5
+
+Column Names :
+['customer_id', 'customer_unique_id', 'customer_zip_code_prefix', 'customer_city', 'customer_state']
+
+Data Types :
+customer_id                 object
+customer_unique_id          object
+customer_zip_code_prefix     int64
+customer_city               object
+customer_state              object
+dtype: object
+
+Statistical Information (numeric columns) :
+                            count      mean       std     min      max
+customer_zip_code_prefix  99441.0  35137.47  29797.94  1003.0  99990.0
+
+Statistical Information (text columns) :
+                    count unique                               top   freq
+customer_id         99441  99441  274fa6071e5e17fe303b9748641082c8      1
+customer_unique_id  99441  96096  8d50f5eadf50201ccdcedfb9e2ac8455     17
+customer_city       99441   4119                         sao paulo  15540
+customer_state      99441     27                                SP  41746
+
+============================================================
+Dataset Name : Geolocation
+============================================================
+Number of Rows    : 1,000,163
+Number of Columns : 5
+
+Column Names :
+['geolocation_zip_code_prefix', 'geolocation_lat', 'geolocation_lng', 'geolocation_city', 'geolocation_state']
+
+Data Types :
+geolocation_zip_code_prefix      int64
+geolocation_lat                float64
+geolocation_lng                float64
+geolocation_city                object
+geolocation_state               object
+dtype: object
+
+Statistical Information (numeric columns) :
+                                 count      mean       std      min       max
+geolocation_zip_code_prefix  1000163.0  36574.17  30549.34  1001.00  99990.00
+geolocation_lat              1000163.0    -21.18      5.72   -36.61     45.07
+geolocation_lng              1000163.0    -46.39      4.27  -101.47    121.11
+
+Statistical Information (text columns) :
+                     count unique        top    freq
+geolocation_city   1000163   8011  sao paulo  135800
+geolocation_state  1000163     27         SP  404268
+
+============================================================
+Dataset Name : Items
+============================================================
+Number of Rows    : 112,650
+Number of Columns : 7
+
+Column Names :
+['order_id', 'order_item_id', 'product_id', 'seller_id', 'shipping_limit_date', 'price', 'freight_value']
+
+Data Types :
+order_id                object
+order_item_id            int64
+product_id              object
+seller_id               object
+shipping_limit_date     object
+price                  float64
+freight_value          float64
+dtype: object
+
+Statistical Information (numeric columns) :
+                  count    mean     std   min      max
+order_item_id  112650.0    1.20    0.71  1.00    21.00
+price          112650.0  120.65  183.63  0.85  6735.00
+freight_value  112650.0   19.99   15.81  0.00   409.68
+
+Statistical Information (text columns) :
+                      count unique                               top  freq
+order_id             112650  98666  8272b63d03f5f79c56e9e4120aec44ef    21
+product_id           112650  32951  aca2eb7d00ea1a7b8ebd4e68314663af   527
+seller_id            112650   3095  6560211a19b47992c3666cc44a7e94c0  2033
+shipping_limit_date  112650  93318               2018-03-01 02:50:48    21
+
+============================================================
+Dataset Name : Payments
+============================================================
+Number of Rows    : 103,886
+Number of Columns : 5
+
+Column Names :
+['order_id', 'payment_sequential', 'payment_type', 'payment_installments', 'payment_value']
+
+Data Types :
+order_id                 object
+payment_sequential        int64
+payment_type             object
+payment_installments      int64
+payment_value           float64
+dtype: object
+
+Statistical Information (numeric columns) :
+                         count    mean     std  min       max
+payment_sequential    103886.0    1.09    0.71  1.0     29.00
+payment_installments  103886.0    2.85    2.69  0.0     24.00
+payment_value         103886.0  154.10  217.49  0.0  13664.08
+
+Statistical Information (text columns) :
+               count unique                               top   freq
+order_id      103886  99440  fa65dad1b0e818e3ccc5cb0e39231352     29
+payment_type  103886      5                       credit_card  76795
+
+============================================================
+Dataset Name : Reviews
+============================================================
+Number of Rows    : 99,224
+Number of Columns : 7
+
+Column Names :
+['review_id', 'order_id', 'review_score', 'review_comment_title', 'review_comment_message', 'review_creation_date', 'review_answer_timestamp']
+
+Data Types :
+review_id                  object
+order_id                   object
+review_score                int64
+review_comment_title       object
+review_comment_message     object
+review_creation_date       object
+review_answer_timestamp    object
+dtype: object
+
+Statistical Information (numeric columns) :
+                count  mean   std  min  max
+review_score  99224.0  4.09  1.35  1.0  5.0
+
+Statistical Information (text columns) :
+                         count unique                               top freq
+review_id                99224  98410  08528f70f579f0c830189efc523d2182    3
+order_id                 99224  98673  df56136b8031ecd28e200bb18e6ddb2e    3
+review_comment_title     11568   4527                         Recomendo  423
+review_comment_message   40977  36159                         Muito bom  230
+review_creation_date     99224    636               2017-12-19 00:00:00  463
+review_answer_timestamp  99224  98248               2017-06-15 23:21:05    4
+
+============================================================
+Dataset Name : Orders
+============================================================
+Number of Rows    : 99,441
+Number of Columns : 8
+
+Column Names :
+['order_id', 'customer_id', 'order_status', 'order_purchase_timestamp', 'order_approved_at', 'order_delivered_carrier_date', 'order_delivered_customer_date', 'order_estimated_delivery_date']
+
+Data Types :
+order_id                         object
+customer_id                      object
+order_status                     object
+order_purchase_timestamp         object
+order_approved_at                object
+order_delivered_carrier_date     object
+order_delivered_customer_date    object
+order_estimated_delivery_date    object
+dtype: object
+
+Statistical Information (text columns) :
+                               count unique                               top   freq
+order_id                       99441  99441  66dea50a8b16d9b4dee7af250b4be1a5      1
+customer_id                    99441  99441  edb027a75a1449115f6b43211ae02a24      1
+order_status                   99441      8                         delivered  96478
+order_purchase_timestamp       99441  98875               2018-08-02 12:05:26      3
+order_approved_at              99281  90733               2018-02-27 04:31:10      9
+order_delivered_carrier_date   97658  81018               2018-05-09 15:48:00     47
+order_delivered_customer_date  96476  95664               2018-05-08 19:36:48      3
+order_estimated_delivery_date  99441    459               2017-12-20 00:00:00    522
+
+============================================================
+Dataset Name : Products
+============================================================
+Number of Rows    : 32,951
+Number of Columns : 9
+
+Column Names :
+['product_id', 'product_category_name', 'product_name_lenght', 'product_description_lenght', 'product_photos_qty', 'product_weight_g', 'product_length_cm', 'product_height_cm', 'product_width_cm']
+
+Data Types :
+product_id                     object
+product_category_name          object
+product_name_lenght           float64
+product_description_lenght    float64
+product_photos_qty            float64
+product_weight_g              float64
+product_length_cm             float64
+product_height_cm             float64
+product_width_cm              float64
+dtype: object
+
+Statistical Information (numeric columns) :
+                              count     mean      std  min      max
+product_name_lenght         32341.0    48.48    10.25  5.0     76.0
+product_description_lenght  32341.0   771.50   635.12  4.0   3992.0
+product_photos_qty          32341.0     2.19     1.74  1.0     20.0
+product_weight_g            32949.0  2276.47  4282.04  0.0  40425.0
+product_length_cm           32949.0    30.82    16.91  7.0    105.0
+product_height_cm           32949.0    16.94    13.64  2.0    105.0
+product_width_cm            32949.0    23.20    12.08  6.0    118.0
+
+Statistical Information (text columns) :
+                       count unique                               top  freq
+product_id             32951  32951  106392145fca363410d287a815be6de4     1
+product_category_name  32341     73                   cama_mesa_banho  3029
+
+============================================================
+Dataset Name : Sellers
+============================================================
+Number of Rows    : 3,095
+Number of Columns : 4
+
+Column Names :
+['seller_id', 'seller_zip_code_prefix', 'seller_city', 'seller_state']
+
+Data Types :
+seller_id                 object
+seller_zip_code_prefix     int64
+seller_city               object
+seller_state              object
+dtype: object
+
+Statistical Information (numeric columns) :
+                         count      mean       std     min      max
+seller_zip_code_prefix  3095.0  32291.06  32713.45  1001.0  99730.0
+
+Statistical Information (text columns) :
+             count unique                               top  freq
+seller_id     3095   3095  9e25199f6ef7e7c347120ff175652c3b     1
+seller_city   3095    611                         sao paulo   694
+seller_state  3095     23                                SP  1849
+
+============================================================
+Dataset Name : Translation
+============================================================
+Number of Rows    : 71
+Number of Columns : 2
+
+Column Names :
+['product_category_name', 'product_category_name_english']
+
+Data Types :
+product_category_name            object
+product_category_name_english    object
+dtype: object
+
+Statistical Information (text columns) :
+                              count unique            top freq
+product_category_name            71     71   beleza_saude    1
+product_category_name_english    71     71  health_beauty    1
+
+============================================================
+Links between the tables (values not found in the parent table)
+============================================================
+orders.customer_id -> customers.customer_id : 0 of 99,441 not found
+items.order_id -> orders.order_id : 0 of 98,666 not found
+items.product_id -> products.product_id : 0 of 32,951 not found
+items.seller_id -> sellers.seller_id : 0 of 3,095 not found
+payments.order_id -> orders.order_id : 0 of 99,440 not found
+reviews.order_id -> orders.order_id : 0 of 98,673 not found
+translation.product_category_name -> products.product_category_name : 0 of 71 not found
+
+============================================================
+Dataset Name : Customers
+============================================================
+No missing values
+
+============================================================
+Dataset Name : Geolocation
+============================================================
+No missing values
+
+============================================================
+Dataset Name : Items
+============================================================
+No missing values
+
+============================================================
+Dataset Name : Payments
+============================================================
+No missing values
+
+============================================================
+Dataset Name : Reviews
+============================================================
+Column                               Missing   % of rows
+review_comment_title                  87,656      88.34%
+review_comment_message                58,247      58.70%
+
+============================================================
+Dataset Name : Orders
+============================================================
+Column                               Missing   % of rows
+order_approved_at                        160       0.16%
+order_delivered_carrier_date           1,783       1.79%
+order_delivered_customer_date          2,965       2.98%
+
+============================================================
+Dataset Name : Products
+============================================================
+Column                               Missing   % of rows
+product_category_name                    610       1.85%
+product_name_lenght                      610       1.85%
+product_description_lenght               610       1.85%
+product_photos_qty                       610       1.85%
+product_weight_g                           2       0.01%
+product_length_cm                          2       0.01%
+product_height_cm                          2       0.01%
+product_width_cm                           2       0.01%
+
+============================================================
+Dataset Name : Sellers
+============================================================
+No missing values
+
+============================================================
+Dataset Name : Translation
+============================================================
+No missing values
+
+============================================================
+Summary of the missing values
+============================================================
+      Table  Columns with missing values  Missing cells
+  customers                            0              0
+geolocation                            0              0
+      items                            0              0
+   payments                            0              0
+    reviews                            2         145903
+     orders                            3           4908
+   products                            8           2448
+    sellers                            0              0
+translation                            0              0
+
+============================================================
+Orders without a delivery date, by order status
+============================================================
+order_status
+shipped        1107
+canceled        619
+unavailable     609
+invoiced        314
+processing      301
+delivered         8
+created           5
+approved          2
+
+Delivered orders without a delivery date : 8
+These orders cannot be used for the delay target.
+
+============================================================
+Dataset Name : Customers
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+Repeated values in customer_id : 0
+
+============================================================
+Dataset Name : Geolocation
+============================================================
+Duplicate rows (all columns the same) : 261,831 (26.18%)
+Rows per zip code : 1,000,163 rows for 19,015 zip codes
+
+============================================================
+Dataset Name : Items
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+
+============================================================
+Dataset Name : Payments
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+
+============================================================
+Dataset Name : Reviews
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+Repeated values in review_id : 814
+
+============================================================
+Dataset Name : Orders
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+Repeated values in order_id : 0
+
+============================================================
+Dataset Name : Products
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+Repeated values in product_id : 0
+
+============================================================
+Dataset Name : Sellers
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+Repeated values in seller_id : 0
+
+============================================================
+Dataset Name : Translation
+============================================================
+Duplicate rows (all columns the same) : 0 (0.00%)
+Repeated values in product_category_name : 0
+
+============================================================
+Summary of the duplicates
+============================================================
+      Table  Duplicate rows  Repeated key values
+  customers               0                    0
+geolocation          261831                    0
+      items               0                    0
+   payments               0                    0
+    reviews               0                  814
+     orders               0                    0
+   products               0                    0
+    sellers               0                    0
+translation               0                    0
+
+============================================================
+What the next steps must do
+============================================================
+geolocation : many rows for every zip code -> keep one row for every zip code (Step 5)
+reviews     : 547 orders have more than one review -> keep one review for every order (Step 6)
+customers   : 2,997 real customers ordered more than once -> this is correct, it is used for the RFM analysis
+
+Converting the dates :
+orders  : 5 date columns converted, new missing values = 0
+items   : 1 date columns converted, new missing values = 0
+reviews : 2 date columns converted, new missing values = 0
+
+Translating the product categories :
+32,328 products translated, 13 keep the Portuguese name, 610 are 'unknown'
+
+Cleaning the geolocation table :
+42 points outside Brazil removed, 1,000,163 rows reduced to 19,010 rows (one for every zip code)
+
+Orders table  : 99,441 rows
+Master table  : 99,441 rows and 32 columns
+Check passed  : one row for every order
+
+Orders without items           : 775
+Orders without a review        : 768
+Orders without customer location : 279
+Orders without seller location   : 993
+
+============================================================
+FEATURE ENGINEERING
+============================================================
+
+New features created:
+- seller_customer_distance_km
+- freight_ratio
+- total_weight_kg
+- total_volume_litres
+- approval_time_hours
+- estimated_delivery_days
+- actual_delivery_days
+- delivery_difference_days
+- purchase_year
+- purchase_month
+- purchase_day_of_week
+- purchase_hour
+
+Feature summary:
+       seller_customer_distance_km  freight_ratio  total_weight_kg  total_volume_litres  approval_time_hours  estimated_delivery_days  actual_delivery_days  delivery_difference_days  purchase_year  purchase_month  purchase_day_of_week  purchase_hour
+count                     98174.00       98666.00         98650.00             98650.00             99281.00                 99441.00              96476.00                  96476.00       99441.00        99441.00              99441.00       99441.00
+mean                        601.29           0.21             2.39                17.40                10.42                    23.77                 12.56                    -11.18        2017.54            6.03                  2.76          14.77
+std                         593.90           0.13             4.77                30.40                26.04                     8.83                  9.55                     10.19           0.51            3.23                  1.97           5.33
+min                           0.00           0.00             0.00                 0.17                 0.00                     1.65                  0.53                   -146.02        2016.00            1.00                  0.00           0.00
+25%                         184.57           0.12             0.30                 2.96                 0.22                    18.33                  6.77                    -16.24        2017.00            3.00                  1.00          11.00
+50%                         433.74           0.18             0.75                 7.26                 0.34                    23.24                 10.22                    -11.95        2018.00            6.00                  3.00          15.00
+75%                         799.09           0.28             2.07                19.87                14.58                    28.42                 15.72                     -6.39        2018.00            8.00                  4.00          19.00
+max                        3579.34           0.96           184.40              1476.00              4509.18                   155.14                209.63                    188.98        2018.00           12.00                  6.00          23.00
+
+Master table shape after feature engineering:
+Rows: 99,441 | Columns: 44
+
+Feature engineering completed.
+
+============================================================
+EXPLORATORY DATA ANALYSIS
+============================================================
+
+1. Order Status Distribution
+order_status
+delivered      96478
+shipped         1107
+canceled         625
+unavailable      609
+invoiced         314
+processing       301
+created            5
+approved           2
+
+2. Monthly Order and Sales Trends
+purchase_month_period  total_orders  total_sales
+              2017-11          7544   1010271.37
+              2017-12          5673    743914.17
+              2018-01          7269    950030.36
+              2018-02          6728    844178.71
+              2018-03          7211    983213.44
+              2018-04          6939    996647.75
+              2018-05          6873    996517.68
+              2018-06          6167    865124.31
+              2018-07          6292    895507.22
+              2018-08          6512    854686.33
+              2018-09            16       145.00
+              2018-10             4         0.00
+
+3. Top Product Categories by Sales
+product_category_english
+health_beauty            1258681.34
+watches_gifts            1205005.68
+bed_bath_table           1036988.68
+sports_leisure            988048.97
+computers_accessories     911954.32
+furniture_decor           729762.49
+cool_stuff                635290.85
+housewares                632248.66
+auto                      592720.11
+garden_tools              485256.46
+
+4. Delivery Performance
+Delivered orders analysed : 96,470
+Late deliveries           : 7,826
+Late delivery rate        : 8.11%
+
+5. Customer Review Scores
+review_score
+1.0    11365
+2.0     3130
+3.0     8134
+4.0    19043
+5.0    57001
+
+6. Freight Cost Analysis
+       total_freight  total_price  freight_ratio
+count       98666.00     98666.00       98666.00
+mean           22.82       137.75           0.21
+std            21.65       210.65           0.13
+min             0.00         0.85           0.00
+25%            13.85        45.90           0.12
+50%            17.17        86.90           0.18
+75%            24.04       149.90           0.28
+max          1794.96     13440.00           0.96
+
+EDA charts saved in: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\images
+Exploratory data analysis completed.
+
+============================================================
+CUSTOMER RFM ANALYSIS
+============================================================
+
+Customer Segment Summary:
+                     customers  average_recency_days  average_orders  average_spending  total_spending
+customer_segment
+Loyal Customers          30844                268.85            1.07            119.49      3685602.92
+Hibernating              15050                395.51            1.00            140.80      2119072.73
+Potential Loyalists      14955                 90.93            1.00            140.89      2107021.69
+Regular Customers        11084                220.01            1.00            130.91      1450973.18
+At Risk                   7468                393.97            1.00            139.18      1039371.97
+Recent Customers          7458                 91.47            1.00            139.22      1038300.71
+Champions                 6499                 91.75            1.17            274.07      1781154.91
+
+Unique customers analysed : 93,358
+Reference date             : 2018-08-30
+
+RFM customer data saved to:
+C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\outputs\rfm_customer_segments.csv
+
+RFM segment summary saved to:
+C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\outputs\rfm_segment_summary.csv
+
+RFM chart saved to:
+C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\images\07_rfm_customer_segments.png
+
+RFM analysis completed successfully.
+
+============================================================
+STEP 10: CREATE TARGET VARIABLE
+============================================================
+
+Eligible delivered orders : 96,470
+On-time or early orders   : 88,644
+Late orders               : 7,826
+
+Target distribution:
+On time / Early   :   88,644 (91.89%)
+Late              :    7,826 (8.11%)
+
+Target variable 'is_late' created successfully.
+
+============================================================
+STEP 11: REMOVE DATA LEAKAGE
+============================================================
+
+Columns removed:
+- order_delivered_customer_date
+- actual_delivery_days
+- delivery_difference_days
+- review_score
+- order_delivered_carrier_date
+- order_status
+
+Target column retained: is_late
+Remaining rows   : 96,470
+Remaining columns: 39
+
+Data leakage removal completed.
+
+============================================================
+STEP 12: PREPARE MACHINE LEARNING DATA
+============================================================
+
+Total eligible orders : 96,470
+Training rows         : 77,176
+Testing rows          : 19,294
+Number of features    : 20
+
+Training target distribution:
+is_late
+On time / Early    70371
+Late                6805
+
+Testing target distribution:
+is_late
+On time / Early    18273
+Late                1021
+
+Numerical features:
+['purchase_year', 'purchase_month', 'purchase_day_of_week', 'purchase_hour', 'n_items', 'n_sellers', 'total_price', 'total_freight', 'total_weight_kg', 'total_volume_litres', 'freight_ratio', 'total_payment_value', 'max_installments', 'seller_customer_distance_km', 'approval_time_hours', 'estimated_delivery_days']
+
+Categorical features:
+['product_category_english', 'payment_type', 'customer_state', 'seller_state']
+
+Training period:
+2016-09-15 12:16:38 to 2018-05-26 18:16:57
+
+Testing period:
+2018-05-26 18:18:03 to 2018-08-29 15:00:37
+
+Machine learning data preparation completed.
+
+============================================================
+STEP 13: BUILD MACHINE LEARNING MODELS
+============================================================
+Created pipeline: Baseline
+Created pipeline: Logistic Regression
+Created pipeline: Decision Tree
+Created pipeline: Random Forest
+Created pipeline: Gradient Boosting
+
+Total pipelines created: 5
+Preprocessing: imputation, scaling and categorical encoding
+Model construction completed.
+
+============================================================
+STEP 14: MODEL COMPARISON
+============================================================
+
+Evaluating: Baseline
+Average Precision: 0.0965
+Recall: 0.0000
+F1-Score: 0.0000
+
+Evaluating: Logistic Regression
+Average Precision: 0.1756
+Recall: 0.5487
+F1-Score: 0.2098
+
+Evaluating: Decision Tree
+Average Precision: 0.1034
+Recall: 0.1328
+F1-Score: 0.1188
+
+Evaluating: Random Forest
+Average Precision: 0.1648
+Recall: 0.0002
+F1-Score: 0.0004
+
+Evaluating: Gradient Boosting
+Average Precision: 0.1734
+Recall: 0.0228
+F1-Score: 0.0334
+
+------------------------------------------------------------
+MODEL COMPARISON SUMMARY
+------------------------------------------------------------
+              Model  Average Precision  Recall  F1-Score
+Logistic Regression             0.1756  0.5487    0.2098
+  Gradient Boosting             0.1734  0.0228    0.0334
+      Random Forest             0.1648  0.0002    0.0004
+      Decision Tree             0.1034  0.1328    0.1188
+           Baseline             0.0965  0.0000    0.0000
+
+============================================================
+STEP 15: SELECT BEST MODEL
+============================================================
+
+Selected Model: Logistic Regression
+Average Precision: 0.1756
+Recall: 0.5487
+F1-Score: 0.2098
+
+The model is selected using cross-validation results from the training data.
+
+============================================================
+STEP 16.1: TRAIN BEST MODEL
+============================================================
+Selected Model : Logistic Regression
+Training Rows  : 77176
+Training Features: 20
+
+Model training completed successfully.
+
+============================================================
+STEP 16.2: SAVE TRAINED MODEL
+============================================================
+Model Name: Logistic Regression
+Model saved successfully at:
+C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\models\Best_delivery_delay_model.joblib
+
+============================================================
+STEP 16.3: LOAD SAVED MODEL
+============================================================
+Model loaded successfully.
+Loaded from: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\models\Best_delivery_delay_model.joblib
+
+============================================================
+STEP 17: MODEL EVALUATION
+============================================================
+
+TEST DATASET PERFORMANCE
+------------------------------------------------------------
+Test Samples      : 19294
+Average Precision : 0.1125
+Precision         : 0.0698
+Recall            : 0.9510
+F1-Score          : 0.1300
+
+Confusion Matrix:
+[[ 5331 12942]
+ [   50   971]]
+
+Confusion Matrix Interpretation:
+True On-Time      : 5331
+False Late Alert  : 12942
+Missed Late Order : 50
+Correct Late Alert: 971
+
+============================================================
+STEP 18: PLOT MODEL RESULTS
+============================================================
+Confusion matrix saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\images\confusion_matrix.png
+Precision-recall curve saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\images\precision_recall_curve.png
+Performance chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\images\model_performance_metrics.png
+
+All model evaluation plots generated successfully.
+
+============================================================
+STEP 19: PREDICT ORDERS
+============================================================
+
+Sample Delivery Predictions:
+------------------------------------------------------------
+Actual_Delivery_Status Predicted_Delivery_Status  Late_Probability Risk_Level
+               On-Time                   On-Time          0.337407        Low
+               On-Time                   On-Time          0.227908        Low
+               On-Time                   On-Time          0.235465        Low
+               On-Time                   On-Time          0.291043        Low
+               On-Time                   On-Time          0.330909        Low
+                  Late                      Late          0.640562     Medium
+               On-Time                   On-Time          0.324075        Low
+               On-Time                   On-Time          0.472586     Medium
+               On-Time                   On-Time          0.268683        Low
+               On-Time                   On-Time          0.491903     Medium
+
+Prediction Summary:
+------------------------------------------------------------
+Total Orders Predicted: 19294
+Predicted Late Orders : 13913
+Predicted On-Time     : 5381
+
+============================================================
+STEP 20: BUSINESS INSIGHTS
+============================================================
+
+1. DELIVERY PERFORMANCE
+------------------------------------------------------------
+Orders Analyzed          : 19,294
+Actually Late Orders     : 1,021
+Actually On-Time Orders  : 18,273
+Actual Late-Delivery Rate: 5.29%
+
+2. MODEL PREDICTION INSIGHTS
+------------------------------------------------------------
+Predicted Late Orders    : 13,913
+Predicted On-Time Orders : 5,381
+Predicted Late Rate      : 72.11%
+High-Risk Orders         : 6,313
+High-Risk Order Rate     : 32.72%
+
+3. MODEL QUALITY
+------------------------------------------------------------
+Average Precision: 0.1125
+Precision        : 0.0698
+Recall           : 0.9510
+F1-Score         : 0.1300
+
+4. BUSINESS RECOMMENDATIONS
+------------------------------------------------------------
+1. Investigate shipping and fulfillment processes to identify causes of delivery delays.
+2. Review detected late orders to identify opportunities for proactive customer communication.
+3. Prioritize high-risk orders for operational review before promising delivery dates.
+4. Many late-delivery alerts may be incorrect. Review alert thresholds before operational deployment.
+
+Business insights generated successfully.
+
+============================================================
+STEP 21: SAVE PROJECT OUTPUTS
+============================================================
+Model comparison saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\model_comparison.csv
+Delivery predictions saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\delivery_predictions.csv
+Evaluation metrics saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\model_evaluation_metrics.csv
+Business insights saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\business_insights.json
+
+All output files saved successfully.
+
+
+======================================================================
+       OLIST E-COMMERCE ANALYTICS & DELIVERY DELAY PREDICTION
+======================================================================
+
+1. PROJECT OVERVIEW
+----------------------------------------------------------------------
+Project       : Olist E-Commerce Analytics
+Objective     : Analyze orders and predict delivery delays
+ML Task       : Binary Classification
+Target        : is_late
+Class 0       : On-Time Delivery
+Class 1       : Late Delivery
+
+2. MACHINE LEARNING DATA
+----------------------------------------------------------------------
+Training Samples : 77,176
+Testing Samples  : 19,294
+Input Features   : 20
+
+3. SELECTED MACHINE LEARNING MODEL
+----------------------------------------------------------------------
+Best Model: Logistic Regression
+
+4. FINAL TEST PERFORMANCE
+----------------------------------------------------------------------
+Average Precision : 0.1125
+Precision         : 0.0698
+Recall            : 0.9510
+F1-Score          : 0.1300
+
+5. DELIVERY INSIGHTS
+----------------------------------------------------------------------
+Test Orders Analyzed  : 19,294
+Actual Late Orders    : 1,021
+Actual Late Rate      : 5.29%
+Predicted Late Orders : 13,913
+High-Risk Orders      : 6,313
+
+6. BUSINESS RECOMMENDATIONS
+----------------------------------------------------------------------
+1. Investigate shipping and fulfillment processes to identify causes of delivery delays.
+2. Review detected late orders to identify opportunities for proactive customer communication.
+3. Prioritize high-risk orders for operational review before promising delivery dates.
+4. Many late-delivery alerts may be incorrect. Review alert thresholds before operational deployment.
+
+7. GENERATED OUTPUT FILES
+----------------------------------------------------------------------
+model_comparison: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\model_comparison.csv
+delivery_predictions: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\delivery_predictions.csv
+evaluation_metrics: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\model_evaluation_metrics.csv
+business_insights: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\10-Olist-E-Commerce-Late-Delivery-Prediction\results\business_insights.json
+
+======================================================================
+       PROJECT PIPELINE COMPLETED SUCCESSFULLY
+======================================================================
+Analytics, model evaluation, predictions, and exports completed.
+======================================================================
+
+============================================================
+   OLIST E-COMMERCE ANALYTICS & DATA SCIENCE PROJECT
+============================================================
+Data Loading        : Completed
+Data Cleaning       : Completed
+Exploratory Analysis: Completed
+RFM Analysis        : Completed
+Feature Engineering : Completed
+Machine Learning    : Completed
+Model Evaluation    : Completed
+Delivery Prediction : Completed
+Business Insights   : Generated
+Output Files        : Saved
+------------------------------------------------------------
+   THANK YOU FOR USING THIS PROJECT!
+============================================================
