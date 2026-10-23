@@ -7,7 +7,7 @@ This folder contains the source code for the IMDb Sentiment Analysis project.
 | File | Description |
 |---|---|
 | `main.py` | Runs the complete pipeline: loading, cleaning, text preprocessing, model comparison, tuning, evaluation, prediction, and saving outputs |
-
+ 
 ## How the Code Is Organised
 
 `main.py` is grouped into sections, one function for each step:
