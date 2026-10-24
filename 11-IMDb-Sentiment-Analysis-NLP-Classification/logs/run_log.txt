@@ -1,0 +1,521 @@
+C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\src>python main.py
+
+============================================================
+       IMDb MOVIE REVIEW SENTIMENT ANALYSIS
+          USING NLP AND MACHINE LEARNING
+============================================================
+Project  : Sentiment Classification
+Dataset  : IMDb Dataset of 50K Movie Reviews
+Author   : Ishwari Vijaykumar Surve
+Language : Python
+============================================================
+
+============================================================
+PROJECT SETUP
+============================================================
+Folder ready: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images
+Folder ready: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\models
+Folder ready: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results
+NLTK resource found : stopwords
+Downloading NLTK resource : wordnet
+Downloading NLTK resource : omw-1.4
+
+Project setup completed successfully.
+Dataset path: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\data\raw\IMDB_Dataset.csv
+File exists: True
+
+============================================================
+STEP 1: LOAD THE IMDb DATASET
+============================================================
+Dataset path      : C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\data\raw\IMDB_Dataset.csv
+Dataset loaded    : successfully
+Number of rows    : 50,000
+Number of columns : 2
+
+============================================================
+STEP 2: UNDERSTAND THE DATASET
+============================================================
+
+First five records:
+                                                        review sentiment
+0  One of the other reviewers has mentioned that after watc...  positive
+1  A wonderful little production. <br /><br />The filming t...  positive
+2  I thought this was a wonderful way to spend time on a to...  positive
+3  Basically there's a family where a little boy (Jake) thi...  negative
+4  Petter Mattei's "Love in the Time of Money" is a visuall...  positive
+
+Last five records:
+                                                            review sentiment
+49995  I thought this movie did a down right good job. It wasn'...  positive
+49996  Bad plot, bad dialogue, bad acting, idiotic directing, t...  negative
+49997  I am a Catholic taught in parochial elementary schools b...  negative
+49998  I'm going to have to disagree with the previous comment ...  negative
+49999  No one expects the Star Trek movies to be high art, but ...  negative
+
+Column names:
+['review', 'sentiment']
+
+Data types:
+review       object
+sentiment    object
+
+Shape: 50,000 rows x 2 columns
+
+Sentiment counts:
+sentiment
+positive    25000
+negative    25000
+
+Word count statistics per review:
+count    50000.0
+mean       231.2
+std        171.3
+min          4.0
+25%        126.0
+50%        173.0
+75%        280.0
+max       2470.0
+
+Sample positive review:
+One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.<br /><br />The first thing that struck me about Oz was its brutality and unflinching scenes of violence, which set in right from the word GO. Tru
+
+Sample negative review:
+Basically there's a family where a little boy (Jake) thinks there's a zombie in his closet & his parents are fighting all the time.<br /><br />This movie is slower than a soap opera... and suddenly, Jake decides to become Rambo and kill the zombie.<br /><br />OK, first of all when you're going to ma
+
+Dataset understanding completed.
+
+============================================================
+STEP 3: STRUCTURAL CHECKS
+============================================================
+
+Missing values per column:
+review       0
+sentiment    0
+
+Duplicate rows : 418 (0.84%)
+Reviews with conflicting labels : 0
+Labels found : ['negative', 'positive']
+Label check : all labels are valid
+
+Structural checks completed.
+
+============================================================
+STEP 4: CLEAN THE DATASET
+============================================================
+Rows before cleaning      : 50,000
+Missing rows removed      : 0
+Duplicate rows removed    : 418
+Conflicting rows removed  : 0
+Invalid label rows removed: 0
+Rows after cleaning       : 49,582
+
+Sentiment counts after cleaning:
+sentiment
+positive    24884
+negative    24698
+
+Dataset cleaning completed.
+
+============================================================
+STEP 5: SENTIMENT DISTRIBUTION
+============================================================
+Sentiment        Count   Percent
+--------------------------------
+positive        24,884    50.19%
+negative        24,698    49.81%
+
+Class balance : balanced (gap under 5%)
+
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\01_sentiment_distribution.png
+Sentiment distribution analysis completed.
+
+============================================================
+STEP 6: REVIEW LENGTH ANALYSIS
+============================================================
+Review length by sentiment:
+           words        characters
+            mean median       mean median
+sentiment
+negative   229.6  174.0     1294.7  974.0
+positive   233.1  172.0     1326.3  969.0
+
+Overall average words      : 231.4
+Overall average characters : 1310.6
+
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\02_review_length_distribution.png
+Review length analysis completed.
+
+============================================================
+STEP 8: TEXT PREPROCESSING
+============================================================
+Example before cleaning:
+One of the other reviewers has mentioned that after watching just 1 Oz episode you'll be hooked. They are right, as this is exactly what happened with me.<br /><br />The first thing that struck me abo
+
+Example after cleaning:
+one reviewer mentioned watching oz episode hooked right exactly happened first thing struck oz brutality unflinching scene violence set right word go trust not show faint hearted timid show pull no pu
+
+Average words after cleaning : 121.1
+Empty reviews after cleaning : 0
+Negation words kept          : neither, never, no, none, nor, not, nothing
+
+Text preprocessing completed.
+
+============================================================
+STEP 9: ENCODE TARGET LABELS
+============================================================
+Mapping : positive = 1, negative = 0
+
+Label counts:
+label
+0    24698
+1    24884
+
+Label encoding completed.
+
+============================================================
+STEP 7: COMMON WORDS BY SENTIMENT
+============================================================
+
+Top 20 words in positive reviews:
+clean_review
+not          54719
+film         49549
+movie        44637
+one          28174
+like         18129
+time         16251
+good         15035
+story        14146
+character    13965
+great        12937
+see          12880
+well         12786
+would        11291
+make         11200
+get          11149
+also         10761
+really       10707
+scene        10022
+life          9862
+show          9613
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\03_top_words_positive.png
+
+Top 20 words in negative reviews:
+clean_review
+not          71467
+movie        57863
+film         43264
+one          26863
+like         22659
+no           15898
+would        15174
+even         15096
+time         14956
+good         14627
+bad          14563
+character    14161
+get          13316
+make         12847
+really       12217
+scene        11276
+could        11247
+see          10983
+story        10966
+much          9977
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\03_top_words_negative.png
+
+Words in the top 20 of both classes : 15
+character, film, get, good, like, make, movie, not, one, really, scene, see, story, time, would
+
+Common words analysis completed.
+
+============================================================
+STEP 10: CREATE TEXT FEATURES
+============================================================
+Bag of Words : word counts, 1 to 2 word phrases, max 50,000 features
+TF-IDF       : weighted word counts, 1 to 2 word phrases, max 50,000 features
+Vectorizers are fitted inside each pipeline on training data only.
+
+Feature creation completed.
+
+============================================================
+STEP 11: SPLIT DATA
+============================================================
+Training reviews : 39,665
+Testing reviews  : 9,917
+
+Training label counts:
+label
+0    19758
+1    19907
+
+Testing label counts:
+label
+0    4940
+1    4977
+
+Data split completed.
+
+============================================================
+STEP 12: BASELINE MODEL
+============================================================
+Baseline : always predicts the most frequent class
+Baseline pipeline created.
+
+============================================================
+STEP 13: CREATE MODEL PIPELINES
+============================================================
+Created pipeline: Multinomial Naive Bayes
+Created pipeline: Logistic Regression
+Created pipeline: Linear SVM
+Created pipeline: Random Forest
+
+Model pipelines created: 4
+
+============================================================
+STEP 14: MODEL COMPARISON
+============================================================
+
+Evaluating: Baseline
+CV Accuracy : 0.5019
+CV F1 Macro : 0.3342
+CV ROC-AUC  : 0.5000
+
+Evaluating: Multinomial Naive Bayes
+CV Accuracy : 0.8748
+CV F1 Macro : 0.8748
+CV ROC-AUC  : 0.9366
+
+Evaluating: Logistic Regression
+CV Accuracy : 0.9016
+CV F1 Macro : 0.9016
+CV ROC-AUC  : 0.9644
+
+Evaluating: Linear SVM
+CV Accuracy : 0.9043
+CV F1 Macro : 0.9043
+CV ROC-AUC  : 0.9656
+
+Evaluating: Random Forest
+CV Accuracy : 0.8588
+CV F1 Macro : 0.8588
+CV ROC-AUC  : 0.9351
+
+------------------------------------------------------------
+MODEL COMPARISON SUMMARY (5-fold CV on training data)
+------------------------------------------------------------
+                  Model  CV Accuracy  CV F1 Macro  CV ROC-AUC
+             Linear SVM       0.9043       0.9043      0.9656
+    Logistic Regression       0.9016       0.9016      0.9644
+Multinomial Naive Bayes       0.8748       0.8748      0.9366
+          Random Forest       0.8588       0.8588      0.9351
+               Baseline       0.5019       0.3342      0.5000
+
+Comparison saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results\model_comparison.csv
+
+============================================================
+STEP 15: SELECT BEST MODEL
+============================================================
+Selected Model      : Linear SVM
+CV Accuracy         : 0.9043
+CV F1 Macro         : 0.9043
+CV ROC-AUC          : 0.9656
+Baseline CV F1 Macro: 0.3342
+
+The model is selected using cross-validation results on the training data only.
+
+============================================================
+STEP 16: TUNE BEST MODEL
+============================================================
+Model to tune        : Linear SVM
+Untuned CV F1 Macro  : 0.9043
+
+Best tuned CV F1 Macro : 0.9066
+Best parameters        :
+  classifier__C = 0.5
+  vectorizer__ngram_range = (1, 2)
+Tuning results saved   : C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results\tuning_results.csv
+
+Tuned settings are better and will be used.
+
+Model tuning completed.
+
+============================================================
+STEP 17: TRAIN FINAL MODEL
+============================================================
+Training reviews used : 39,665
+Final model trained successfully.
+
+============================================================
+STEP 18: SAVE MODEL
+============================================================
+Model saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\models\sentiment_model.joblib
+Reload check passed (test prediction: 1)
+
+============================================================
+STEP 19: EVALUATE FINAL MODEL ON TEST DATA
+============================================================
+Test reviews     : 9,917
+Accuracy         : 0.9090
+Precision (pos)  : 0.9032
+Recall (pos)     : 0.9170
+F1 (pos)         : 0.9101
+F1 negative      : 0.9080
+F1 positive      : 0.9101
+F1 macro         : 0.9090
+ROC-AUC          : 0.9701
+
+Classification report:
+              precision    recall  f1-score   support
+
+    negative     0.9151    0.9010    0.9080      4940
+    positive     0.9032    0.9170    0.9101      4977
+
+    accuracy                         0.9090      9917
+   macro avg     0.9092    0.9090    0.9090      9917
+weighted avg     0.9091    0.9090    0.9090      9917
+
+Confusion matrix (rows = actual, columns = predicted):
+                 Pred negative   Pred positive
+Actual negative          4,451             489
+Actual positive            413           4,564
+
+Final evaluation completed.
+
+============================================================
+STEP 20: ERROR ANALYSIS
+============================================================
+Total misclassified reviews : 902
+False positives (negative predicted as positive) : 489
+False negatives (positive predicted as negative) : 413
+
+Word patterns in misclassified vs correct reviews:
+Pattern                                      In errors   In correct
+-------------------------------------------------------------------
+negation (not, no, never, n't)                  87.80%       87.21%
+contrast (but, however, although, though)       82.48%       77.26%
+
+Example false positive (negative review predicted as positive):
+"La Lupa Mannara" aka. "Werewolf Woman" of 1976 is a film with a highly promising title, but, sadly, the film itself is pretty far away from being a must-see for my fellow Italian Horror buffs. You won't hear me say that Rino Di Silvestri's film is e
+
+Example false negative (positive review predicted as negative):
+This isn't exactly a great film, but I admire the writers and director for trying something a little different. The film's main theme is fate and small, seemingly insignificant things that can greatly change the future. In some ways this reminds me o
+
+Misclassified reviews saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results\misclassified_reviews.csv
+Error analysis completed.
+
+============================================================
+STEP 21: PLOT MODEL RESULTS
+============================================================
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\04_model_comparison.png
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\confusion_matrix.png
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\roc_curve.png
+Chart saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\images\top_features.png
+
+Top positive words: great, excellent, perfect, amazing, must see, wonderful, brilliant, best, hilarious, fun, loved, enjoyable, refreshing, one best, today
+Top negative words: worst, awful, bad, boring, waste, poor, fails, terrible, disappointing, not funny, disappointment, not recommend, nothing, dull, horrible
+
+Model result charts completed.
+
+============================================================
+STEP 22: PREDICT NEW REVIEWS
+============================================================
+
+============================================================
+STEP 8: TEXT PREPROCESSING
+============================================================
+Example before cleaning:
+The acting was superb and the story kept me hooked from start to finish.
+
+Example after cleaning:
+acting superb story kept hooked start finish
+
+Average words after cleaning : 6.2
+Empty reviews after cleaning : 0
+Negation words kept          : neither, never, no, none, nor, not, nothing
+
+Text preprocessing completed.
+
+Review     : The acting was superb and the story kept me hooked from start to finish.
+Sentiment  : POSITIVE (confidence 78.55%)
+------------------------------------------------------------
+Review     : I was bored to tears and the plot made no sense at all.
+Sentiment  : NEGATIVE (confidence 74.00%)
+------------------------------------------------------------
+Review     : Not a bad movie, but not a good one either.
+Sentiment  : NEGATIVE (confidence 82.21%)
+------------------------------------------------------------
+Review     : This film is not good at all, I would never watch it again.
+Sentiment  : NEGATIVE (confidence 74.28%)
+------------------------------------------------------------
+Review     : A beautiful, moving film with a brilliant ending.
+Sentiment  : POSITIVE (confidence 86.95%)
+------------------------------------------------------------
+Prediction completed.
+
+============================================================
+STEP 22: SAVE OUTPUTS
+============================================================
+Evaluation metrics saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results\model_evaluation_metrics.csv
+Project insights saved: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results\sentiment_insights.json
+
+All outputs saved successfully.
+
+======================================================================
+       IMDb SENTIMENT ANALYSIS - PROJECT SUMMARY
+======================================================================
+
+1. PROJECT OVERVIEW
+----------------------------------------------------------------------
+Problem        : Binary sentiment classification (positive / negative)
+Dataset        : IMDb movie reviews
+Training set   : 39,665 reviews
+Testing set    : 9,917 reviews
+
+2. SELECTED MODEL
+----------------------------------------------------------------------
+Best model     : Linear SVM
+Tuned settings :
+  classifier__C = 0.5
+  vectorizer__ngram_range = (1, 2)
+
+3. CROSS-VALIDATION RESULTS (training data)
+----------------------------------------------------------------------
+Accuracy       : 0.9043
+F1 macro       : 0.9043
+ROC-AUC        : 0.9656
+
+4. FINAL TEST RESULTS (unseen data)
+----------------------------------------------------------------------
+Accuracy       : 0.9090
+Precision (pos): 0.9032
+Recall (pos)   : 0.9170
+F1 positive    : 0.9101
+F1 negative    : 0.9080
+F1 macro       : 0.9090
+ROC-AUC        : 0.9701
+
+5. GENERATED OUTPUT FILES
+----------------------------------------------------------------------
+metrics: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results\model_evaluation_metrics.csv
+insights: C:\Users\Ishwari Surve\OneDrive\Desktop\Marvellous Python -AIML\11-IMDB Dataset case study\results\sentiment_insights.json
+
+======================================================================
+       PROJECT PIPELINE COMPLETED SUCCESSFULLY
+======================================================================
+
+============================================================
+   IMDb SENTIMENT ANALYSIS - NLP CLASSIFICATION PROJECT
+============================================================
+Dataset Loading     : Completed
+Data Cleaning       : Completed
+Exploratory Analysis: Completed
+Text Preprocessing  : Completed
+Model Training      : Completed
+Model Evaluation    : Completed
+Error Analysis      : Completed
+Predictions         : Completed
+Output Files        : Saved
+------------------------------------------------------------
+   THANK YOU FOR USING THIS PROJECT!
+============================================================
