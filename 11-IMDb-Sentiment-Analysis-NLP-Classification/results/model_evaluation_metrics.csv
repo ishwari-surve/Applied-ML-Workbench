@@ -1,0 +1,8 @@
+Metric,Score
+Accuracy,0.909
+Precision (positive),0.9032
+Recall (positive),0.917
+F1 (positive),0.9101
+F1 (negative),0.908
+F1 macro,0.909
+ROC-AUC,0.9701
