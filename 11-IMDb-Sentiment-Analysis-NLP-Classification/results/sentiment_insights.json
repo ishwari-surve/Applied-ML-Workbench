@@ -1,0 +1,28 @@
+{
+    "best_model": "Linear SVM",
+    "tuned_parameters": {
+        "classifier__C": "0.5",
+        "vectorizer__ngram_range": "(1, 2)"
+    },
+    "dataset_reviews": 49582,
+    "training_reviews": 39665,
+    "testing_reviews": 9917,
+    "cross_validation": {
+        "accuracy": 0.9042984999369722,
+        "f1_macro": 0.9042861741114786,
+        "roc_auc": 0.9656017765751729
+    },
+    "test_metrics": {
+        "accuracy": 0.9090450741151558,
+        "precision_positive": 0.9032258064516129,
+        "recall_positive": 0.9170182841068917,
+        "f1_positive": 0.9100697906281157,
+        "f1_negative": 0.9079967360261118,
+        "f1_macro": 0.9090332633271136,
+        "roc_auc": 0.9700769287711326
+    },
+    "recommendations": [
+        "The model classifies most reviews correctly on unseen data.",
+        "Review the misclassified reviews to find patterns such as sarcasm or mixed opinions."
+    ]
+}
