@@ -1,0 +1,7 @@
+params,mean_test_score,std_test_score,rank_test_score
+"{'classifier__C': 0.5, 'vectorizer__ngram_range': (1, 2)}",0.9066031974790132,0.0017135900134251966,1
+"{'classifier__C': 1.0, 'vectorizer__ngram_range': (1, 2)}",0.9042861741114786,0.002698129381594033,2
+"{'classifier__C': 0.1, 'vectorizer__ngram_range': (1, 2)}",0.9033136927165051,0.002374537005040796,3
+"{'classifier__C': 0.5, 'vectorizer__ngram_range': (1, 1)}",0.8973207789692802,0.0022534177858883897,4
+"{'classifier__C': 0.1, 'vectorizer__ngram_range': (1, 1)}",0.8962996968709251,0.0021767545400773716,5
+"{'classifier__C': 1.0, 'vectorizer__ngram_range': (1, 1)}",0.8937205875487984,0.002921867076713683,6
