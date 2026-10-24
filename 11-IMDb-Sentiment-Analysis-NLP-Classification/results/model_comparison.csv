@@ -1,0 +1,6 @@
+Model,CV Accuracy,CV F1 Macro,CV ROC-AUC
+Linear SVM,0.9043,0.9043,0.9656
+Logistic Regression,0.9016,0.9016,0.9644
+Multinomial Naive Bayes,0.8748,0.8748,0.9366
+Random Forest,0.8588,0.8588,0.9351
+Baseline,0.5019,0.3342,0.5
